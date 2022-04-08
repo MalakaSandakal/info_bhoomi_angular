@@ -1,0 +1,121 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light top-nav">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="./assets/img/Logo.png" class="logo-img" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse me-auto" id="navbarSupportedContent">
+            <div class="d-flex top-right">
+                <button class="btn search-btn" data-bs-toggle="modal" data-bs-target="#search-modal">Search <i
+                        class="fas fa-search" style="margin-left: 10px;"></i>
+                </button>
+                <button class="btn signin-btn" data-bs-toggle="modal" data-bs-target="#signin-modal">
+                    <i class="fas fa-unlock btn-icon"></i> Sign in or register </button>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- begin: Signin Modal (popup) -->
+<div class="modal fade" id="signin-modal" tabindex="-1" aria-labelledby="signin-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content signin-modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signin-modalLabel">Sign in</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <input type="email" placeholder="Email address" class="form-control modal-form-control"
+                            id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    </div>
+                    <div class="mb-1">
+                        <input type="password" placeholder="Password" class="form-control modal-form-control"
+                            id="exampleInputPassword1" />
+                    </div>
+                    <a href="" class="modal-links" style="float: right;">Forgot password?</a>
+                </form>
+            </div>
+            <div class="modal-footer signin-modal-footer">
+                <button type="button" class="btn btn-primary">Sign in</button>
+                <div class="signup-modal-btn">
+                    <a href="signup.html" class="modal-links">No account? Sign up here!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: Signin Modal (popup) -->
+
+<!-- begin: Search Modal (popup) -->
+<div class="modal fade" id="search-modal" tabindex="-1" aria-labelledby="search-modal-Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="row">
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">Name :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="name"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">ID :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="id"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">Province Name :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="province"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">District Name :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="district"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">MC Name :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="mc"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">Parcel ID :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="parcel"
+                                aria-describedby="nameHelp" />
+                        </div>
+                        <div class="col-md-4 search-form-label-col">
+                            <h5 class="search-form-label">Acc NO :</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control mb-3 search-form-input" id="acc"
+                                aria-describedby="nameHelp" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer search-modal-footer">
+                <button type="button" class="btn btn-primary">Search Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: Search Modal (popup) -->
