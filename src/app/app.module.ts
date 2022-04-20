@@ -7,7 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { TopBreadcrumbComponent } from './top-breadcrumb/top-breadcrumb.component';
 import { OpenlayersMapComponent } from './openlayers-map/openlayers-map.component';
-import { DrawtoolComponent } from './drawtool/drawtool.component';
+import { DrawtoolsComponent } from './drawtools/drawtools.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { DrawtoolComponent } from './drawtool/drawtool.component';
     TopbarComponent,
     TopBreadcrumbComponent,
     OpenlayersMapComponent,
-    DrawtoolComponent
+    DrawtoolsComponent
   ],
   imports: [
     BrowserModule,
