@@ -1,9 +1,12 @@
-<button id="button_point" type="button" (click)="pointToolEnabled()">
-    <i class="fas fa-map-marker-alt"></i>
-</button>
-<button id="button_polygon" type="button" (click)="lineToolEnabled()">
-    <i class="fas fa-bezier-curve"></i>
-</button>
-<button id="button_polygon" type="button" (click)="polygonToolEnabled()">
-    <i class="fas fa-draw-polygon"></i>
-</button>
+<div class="ol-zoom ol-unselectable ol-control">
+    <button id="button_point" class="btn" type="button" data-toggle="tooltip" data-placement="right" title="Draw Tool" (click)="pointToolEnabled()">
+        <i class="fas fa-map-marker-alt"></i>
+    </button>
+    <button id="button_line" class="btn" type="button" data-toggle="tooltip" data-placement="right" title="Line Tool" (click)="lineToolEnabled()">
+        <i class="fas fa-bezier-curve"></i>
+    </button>
+    <button id="button_polygon" class="btn" type="button" data-toggle="tooltip" data-placement="right" title="Polygon Tool" (click)="polygonToolEnabled()">
+        <i class="fas fa-draw-polygon"></i>
+    </button>
+</div>
+

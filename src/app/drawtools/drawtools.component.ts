@@ -6,6 +6,7 @@ import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
 import LayerGroup from 'ol/layer/Group';
 import LayerSwitcher from 'ol-layerswitcher';
+import {defaults} from 'ol/control';
 import { BaseLayerOptions,GroupLayerOptions } from 'ol-layerswitcher';
 import OSM from 'ol/source/osm';
 
@@ -22,11 +23,12 @@ import Snap from 'ol/interaction/Snap';
 
 export class DrawtoolsComponent implements OnInit {
 
-  map:any=Map;
-  draw:any=Draw;
-  snap:any=Snap;
+  map:any= Map;
+  draw:any= Draw;
+  snap:any= Snap;
   selected_geom_type:string= '';
-  layerSwitcher:any=LayerSwitcher;
+  layerSwitcher:any= LayerSwitcher;
+  baseLayer:any= LayerGroup;
 
   constructor() { }
 
@@ -48,14 +50,18 @@ export class DrawtoolsComponent implements OnInit {
       ],
       target: 'mymap'
     }); 
+
     this.layerSwitcher = new LayerSwitcher({
       tipLabel: 'Légende', // Optional label for button
+      reverse: true,
       groupSelectStyle: 'children' // Can be 'children' [default], 'group' or 'none'
     });
-    this.map.addControl(this.layerSwitcher)
+    this.map.addControl(this.layerSwitcher);
+    this.baseLayer = new LayerGroup({
+
+    })
+
   }
-
-
 
   pointToolEnabled(){
     this.map.removeInteraction(this.draw);
