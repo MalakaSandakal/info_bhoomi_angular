@@ -7,12 +7,17 @@ import TileLayer from 'ol/layer/Tile';
 import LayerGroup from 'ol/layer/Group';
 import LayerSwitcher from 'ol-layerswitcher';
 import OSM from 'ol/source/osm';
+import SourceStamen from 'ol/source/Stamen';
 
 // import to draw
 import Draw from 'ol/interaction/Draw';
 import VectorSource from 'ol/source/Vector';
 import Snap from 'ol/interaction/Snap';
 import Modify from 'ol/interaction/Modify'
+
+import { BaseLayerOptions, GroupLayerOptions } from 'ol-layerswitcher';
+import { Tile } from 'ol';
+import LayerRenderer from 'ol/renderer/Layer';
 
 @Component({
   selector: 'app-drawtools',
@@ -41,6 +46,27 @@ export class DrawtoolsComponent implements OnInit {
     this.initializeMap();
   }
 
+  osm = new TileLayer({
+    title:'OSM',
+    type:'base',
+    visible:true,
+    source: new OSM()
+  }as BaseLayerOptions);
+
+  watercolor = new TileLayer({
+    title:'Water color',
+    type:'base',
+    visible:false,
+    source:new SourceStamen({
+      layer:'watercolor'
+    })
+  }as BaseLayerOptions);
+
+  baseMaps = new LayerGroup({
+    title:'Base maps',
+    layers:[this.osm,this.watercolor]
+  }as GroupLayerOptions);
+
   initializeMap() {
     this.map = new Map({
       view: new View({
@@ -49,13 +75,23 @@ export class DrawtoolsComponent implements OnInit {
         zoom: 17,
       }),
       layers: [
-        new TileLayer({
-          source: new OSM(),
-        }),
+        this.baseMaps
+        // new TileLayer({
+        //   source: new OSM(),
+        // }),
       ],
       target: 'mymap'
     });
+    
+    this.layerSwitcher = new LayerSwitcher({
+      reverse:true,
+      groupSelectStyle:'group'
+    });
+
+    this.map.addControl(this.layerSwitcher)
+
   }
+
 
   pointToolEnabled() {
     if (this.flag_is_polygon_mode_on == false) {
@@ -88,7 +124,7 @@ export class DrawtoolsComponent implements OnInit {
   lineToolEnabled() {
     if (this.flag_is_polygon_mode_on == false) {
       this.line_tool_icon = this.stop_tool_icon;
-      this.selected_geom_type = "LineSting";
+      this.selected_geom_type = "LineString";
       this.addInteraction(this.selected_geom_type);
       this.flag_is_polygon_mode_on = true;
     } else {
